@@ -4,10 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WinFactor"
     xmlns:viewModels="clr-namespace:WinFactor.ViewModels"
-    x:Class="WinFactor.MainPage">
+    x:Class="WinFactor.MainPage"
+    Title="Win Factor"
+    x:Name="_page">
     <ContentPage.BindingContext>
-        <viewModels:MainPageViewModel/>
+        <viewModels:MainPageViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddIssueCommand}" CommandParameter="{x:Reference _page}" />
+    </ContentPage.ToolbarItems>
     <StackLayout Spacing="0">
         <ListView ItemsSource="{Binding Issues}" HasUnevenRows="True" SeparatorColor="Black">
             <ListView.ItemTemplate>
@@ -15,36 +20,36 @@
                     <ViewCell>
                         <Grid Margin="10" RowSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
+                                <RowDefinition />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.ColumnSpan="3" Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Start"/>
+                            <Label Grid.ColumnSpan="3" Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Start" />
                             <Label Grid.Row="1" FontSize="Medium" HorizontalTextAlignment="Start">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Cost: "/>
-                                        <Span Text="{Binding Cost, Mode=OneWay}"/>
+                                        <Span Text="Cost: " />
+                                        <Span Text="{Binding Cost, Mode=OneWay}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
                             <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" HorizontalTextAlignment="Start">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Win: "/>
-                                        <Span Text="{Binding WinFactor, Mode=OneWay}"/>
+                                        <Span Text="Win: " />
+                                        <Span Text="{Binding WinFactor, Mode=OneWay}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
                             <Label Grid.Row="1" Grid.Column="2" FontSize="Medium" HorizontalTextAlignment="Start">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Weight: "/>
-                                        <Span Text="{Binding Weight, Mode=OneWay}"/>
+                                        <Span Text="Weight: " />
+                                        <Span Text="{Binding Weight, Mode=OneWay}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -53,35 +58,37 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <BoxView BackgroundColor="Black" VerticalOptions="End" HeightRequest="1"/>
+        <BoxView BackgroundColor="Black" VerticalOptions="End" HeightRequest="1" />
+        <Label Margin="10,0" Text="Total Cost" FontSize="Medium" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+        <Entry Margin="10.0" Text="{Binding TotalCost, Mode=TwoWay}" />
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Cost Total: "/>
-                        <Span Text="{Binding IssuesCostTotal, Mode=OneWay}"/>
+                        <Span Text="Cost Total: " />
+                        <Span Text="{Binding IssuesCostTotal, Mode=OneWay}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
             <Label Grid.Column="1" Grid.Row="1" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Win Total: "/>
-                        <Span Text="{Binding IssuesWinTotal, Mode=OneWay}"/>
+                        <Span Text="Win Total: " />
+                        <Span Text="{Binding IssuesWinTotal, Mode=OneWay}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <ActivityIndicator Grid.RowSpan="2" IsRunning="{Binding IsBusy}"  HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ActivityIndicator Grid.RowSpan="2" IsRunning="{Binding IsBusy}"  HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
-        <Button BackgroundColor="Blue" Text="Calculate Win Factor" TextColor="White" Margin="10" Command="{Binding CalculateWinFactorCommand}"/>
+        <Button BackgroundColor="CornflowerBlue" Text="Calculate Win Factor" TextColor="White" Margin="10" Command="{Binding CalculateWinFactorCommand}" />
     </StackLayout>
 </ContentPage>

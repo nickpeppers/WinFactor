@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:WinFactor.ViewModels"
+    x:Class="WinFactor.Pages.AddIssuePage"
+    x:Name="_page"
+    Title="Add New Issue">
+    <ContentPage.BindingContext>
+        <viewModels:AddIssuePageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Close" Command="{Binding CloseCommand}" CommandParameter="{x:Reference _page}" />
+    </ContentPage.ToolbarItems>
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Margin="10,10,10,0" Text="Issue Name" FontSize="Medium" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="1" Margin="10.0" Text="{Binding IssueName, Mode=TwoWay}" />
+        <Label Grid.Row="2" Margin="10,10,10,0" Text="Issue Cost" FontSize="Medium" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="3" Margin="10.0" Text="{Binding IssueCost, Mode=TwoWay}" Keyboard="Numeric" />
+        <Label Grid.Row="4" Margin="10,10,10,0" Text="Issue Win Factor" FontSize="Medium" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="5" Margin="10.0" Text="{Binding IssueWinFactor, Mode=TwoWay}" Keyboard="Numeric" />
+        <Button Grid.Row="6" BackgroundColor="CornflowerBlue" Text="Add Issue" TextColor="White" Margin="10" Command="{Binding AddIssueCommand}" VerticalOptions="End" />
+    </Grid>
+</ContentPage>
