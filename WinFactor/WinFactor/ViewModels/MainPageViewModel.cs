@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WinFactor.Models;
@@ -12,10 +10,8 @@ using Xamarin.Forms;
 
 namespace WinFactor.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         readonly IWinCalculationService _winCalculationService = ServiceContainer.Resolve<IWinCalculationService>();
 
         public ICommand CalculateWinFactorCommand { get; set; }
@@ -80,18 +76,6 @@ namespace WinFactor.ViewModels
             }
         }
 
-        bool _isBusy;
-
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            set
-            {
-                _isBusy = value;
-                OnPropertyChanged(nameof(IsBusy));
-            }
-        }
-
         async void OnCalculateWinFactor()
         {
             try
@@ -136,11 +120,6 @@ namespace WinFactor.ViewModels
             {
                 _isNavigating = false;
             }
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

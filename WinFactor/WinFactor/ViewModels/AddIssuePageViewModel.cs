@@ -7,10 +7,8 @@ using Xamarin.Forms;
 
 namespace WinFactor.ViewModels
 {
-    public class AddIssuePageViewModel : INotifyPropertyChanged
+    public class AddIssuePageViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ICommand CloseCommand { get; set; }
         public ICommand AddIssueCommand { get; set; }
 
@@ -82,11 +80,6 @@ namespace WinFactor.ViewModels
         {
             var issue = new Issue(IssueName, IssueCost, IssueWinFactor);
             MessagingCenter.Send<Issue>(issue, DefaultData.NewIssueMessage);
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
