@@ -52,5 +52,32 @@ namespace WinFactor.Models
             new Issue("Issue 19", 54, 1000),
             new Issue("Issue 20", 3, 4)
         };
+
+        public static ObservableCollection<Issue> SampleIssues4 = new ObservableCollection<Issue>
+        {
+            new Issue("Issue 1", 2, 1),
+            new Issue("Issue 2", 3, 3),
+            new Issue("Issue 3", 4, 4),
+            new Issue("Issue 4", 7, 4),
+            new Issue("Issue 5", 10, 5)
+        };
+
+        public static ObservableCollection<Issue> SampleIssues5 = new ObservableCollection<Issue>
+        {
+            new Issue("Issue 1", 4, 2),
+            new Issue("Issue 2", 3, 6),
+            new Issue("Issue 3", 2, 3),
+            new Issue("Issue 4", 4, 7),
+            new Issue("Issue 5", 5, 10)
+        };
+
+        public static ObservableCollection<Issue> SampleIssues6 = new ObservableCollection<Issue>
+        {
+            new Issue("Issue 1", 0, 2),
+            new Issue("Issue 2", 3, 0),
+            new Issue("Issue 3", -2, 3),
+            new Issue("Issue 4", 4, -7),
+            new Issue("Issue 5", 5, 10)
+        };
     }
 }

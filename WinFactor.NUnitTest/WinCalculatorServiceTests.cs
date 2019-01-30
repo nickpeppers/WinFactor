@@ -48,5 +48,35 @@ namespace Tests
             Assert.AreEqual(50, _winCalculationService.LastCostTotal);
             Assert.AreEqual(98, _winCalculationService.LastWinTotal);
         }
+
+        [Test]
+        public void Sample4Test()
+        {
+            var issuesToFix = _winCalculationService.CalculateOptimalIssuesList(DefaultData.SampleIssues4);
+
+            Assert.AreEqual(3, issuesToFix.Count());
+            Assert.AreEqual(9, _winCalculationService.LastCostTotal);
+            Assert.AreEqual(8, _winCalculationService.LastWinTotal);
+        }
+
+        [Test]
+        public void Sample5Test()
+        {
+            var issuesToFix = _winCalculationService.CalculateOptimalIssuesList(DefaultData.SampleIssues5);
+
+            Assert.AreEqual(3, issuesToFix.Count());
+            Assert.AreEqual(10, _winCalculationService.LastCostTotal);
+            Assert.AreEqual(19, _winCalculationService.LastWinTotal);
+        }
+
+        [Test]
+        public void Sample6Test()
+        {
+            var issuesToFix = _winCalculationService.CalculateOptimalIssuesList(DefaultData.SampleIssues6);
+
+            Assert.AreEqual(5, issuesToFix.Count());
+            Assert.AreEqual(10, _winCalculationService.LastCostTotal);
+            Assert.AreEqual(8, _winCalculationService.LastWinTotal);
+        }
     }
 }
