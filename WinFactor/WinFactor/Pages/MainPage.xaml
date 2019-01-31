@@ -60,7 +60,7 @@
         </ListView>
         <BoxView BackgroundColor="Black" VerticalOptions="End" HeightRequest="1" />
         <Label Margin="10,0" Text="Total Cost" FontSize="Medium" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-        <Entry Margin="10.0" Text="{Binding TotalCost, Mode=TwoWay}" />
+        <Entry Margin="10.0" Text="{Binding TotalCost, Mode=TwoWay}" Keyboard="Numeric"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
